@@ -8,7 +8,7 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
-    - mvn sonar:sonar -Dsonar.projectKey=AS201S3_T11_SistCom -Dsonar.host.url=http://34.68.32.239:9000 -Dsonar.login=622c3d02a310caf99f39ffc07ebba192a27796e1
-  allow_failure: true
+    mvn sonar:sonar -Dsonar.projectKey=edgard -Dsonar.host.url=http://34.68.32.239:9000 -Dsonar.login=df3a2301b8ecbb8b8bc51438268a34b2992bc12d
+    allow_failure: true
   only:
     - SistCom_Maven
