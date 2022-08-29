@@ -1,5 +1,5 @@
 sonarqube-check:
-  image: maven:3.6.3-jdk-8-openj9
+  image: maven:3.6.3-jdk-8
   variables:
     SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
     GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
@@ -8,7 +8,8 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
-    mvn sonar:sonar -Dsonar.projectKey=edgard -Dsonar.host.url=http://34.68.32.239:9000 -Dsonar.login=df3a2301b8ecbb8b8bc51438268a34b2992bc12d
-    allow_failure: true
+    - mvn verify sonar:sonar -Dsonar.projectKey=test
+  allow_failure: true
   only:
-    - SistCom_Maven
+    - master # or the name of your main branch
+
